@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <title>Lightbox Gallery</title>
+    <link rel="stylesheet" href="gallery.css">
+    <link rel="stylesheet" href="lightbox.css">
+    <link rel="stylesheet" href="css/styling.css">
+  </head>
+  <body>
+    <!-- Gallery/Image Code -->
+
+
+    <!-- Lightbox Code -->
+    <div id="lightboxContainer">
+      <div id="lightboxBackground" class="closer"></div>
+      <img id="lightbox" src= "" alt="">
+
+       <div id="gallery">
+      <img id="pic1" class='galleryImage' src="images/Monkey1.jpeg" alt="">
+      <img id="pic2" class='galleryImage' src="images/monkey2.jpeg" alt="">
+      <img id="pic3" class='galleryImage' src="images/monkey3.jpeg" alt="">
+       </div>
+
+
+      <span id="lightboxCloser" class="closer">×</span>
+    </div>
+
+    <!-- Lightbox JavaScript -->
+    <script type="text/javascript">
+      // use js to get all the containers for the image gallery
+     let lightboxContainer = document.getElementById('lightboxContainer');
+     let lightboxBackground = document.getElementById('lightboxBackground');
+     let lightbox = document.getElementById('lightbox');
+     lightbox.style.width = '200px';
+     let lightboxCloser = document.getElementById('lightboxCloser');
+
+    //  function to get the image we want
+    function openLightbox(){
+      lightboxContainer.classList.add('display');
+      lightbox.src = this.src;
+      let coffeeImage = document.getElementById('coffeeImage');
+    coffeeImage.onclick = openLightbox;
+    }
+// use  variable to reference all images; not GET but reference 
+    let galleryImages = document.getElementsByClassName('galleryImage');
+    for (let i = 0; i < galleryImage.length; i++) {
+      let galleryImage = galleryImages[i];
+      galleryImage.onclick = openLightbox;
+
+    }
+
+    // let coffeeImage = document.getElementById('coffeeImage');
+    // coffeeImage.onclick = openLightbox;
+
+
+    //  let pic1 = document.getElementById('pic1');
+    //   pic1.onclick = openLightbox;
+
+    //   let pic2 = document.getElementById('pic2');
+    //   pic2.onclick = openLightbox;
+
+    //   let pic3 = document.getElementById('pic3');
+    //   pic3.onclick = openLightbox;
+
+
+
+
+    function closeLightbox(){
+      lightboxContainer.classList.remove('display');
+      lightbox.src = '';
+    }
+
+let closers = document.getElementsByClassName('closer');
+for (let i = 0; i < closers.length; i++) {
+  let closer = closers;
+  closer.onclick = closeLightbox;
+}
+  
+
+    </script>
+  </body>
+</html>
